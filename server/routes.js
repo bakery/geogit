@@ -1,3 +1,13 @@
+Router.route('/', function () {
+  this.response.writeHead(302, {
+    'Location': 'http://thebakeryio.github.io/geogit/'
+  });
+
+  this.response.end();
+
+}, {where: 'server'});
+
+
 Router.route('/locate/:format?', function () {
   var format = this.params.format || 'json';
   var formatToOutput = {
