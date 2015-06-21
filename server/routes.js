@@ -7,16 +7,24 @@ Router.route('/locate/:format?', function () {
 
     'geogit' : function(data){
       return [
-        'this commit comes from', 
-        data.country_name, ',',
-        data.city
-      ].join(' '); 
+        '[Geogit] // sent from ' + 
+        data.country_name, ', ', data.city,
+        ' [', data.latitude + ',' + data.longitude + '] ',
+        ':' + data.country_code + ':'
+      ].join(''); 
     }
   };
   var req = this.request;
   var res = this.response;
   var requestIp = req.headers['x-forwarded-for'];
-  var geoData = FreeGeoIP.get(requestIp);
+  var result = '';
 
-  res.end(formatToOutput[format].call(this,geoData.data));
+  try {
+    var geoData = FreeGeoIP.get(requestIp);  
+    result = formatToOutput[format].call(this,geoData.data);
+  } catch(e) {
+    console.error('geoloc failed', e);
+  }
+  
+  res.end(result);
 }, {where: 'server'});
