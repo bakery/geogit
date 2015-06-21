@@ -18,12 +18,5 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    FreeGeoIP.get('113.162.36.167', function(error, result){
-      if(!error){
-        console.log('result is', result.data);
-      } else {
-        console.error(error);
-      }
-    });
   });
 }
