@@ -3,4 +3,5 @@
 #SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
 GEOGIT_MSG=$(curl geo-git.herokuapp.com/locate/geogit)
 
-grep -qs "^$GEOGIT_MSG" "$1" || echo "\n\n\n$GEOGIT_MSG" >> "$1"
+#grep -qs "^$GEOGIT_MSG" "$1" || echo "\n\n\n$GEOGIT_MSG" >> "$1"
+echo "-----------------\n$GEOGIT_MSG" >> "$1"
