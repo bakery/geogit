@@ -11,11 +11,11 @@ Add geolocation messages to your commits because it's fun to see where code come
 Geogit is a git hook that goes into your **.git/hooks/commit-msg** file for a specific project. To install
 
 ```
-touch /myproject/.git/hooks/pre-commit
-chmod +x /myproject/.git/hooks/pre-commit 
+touch /myproject/.git/hooks/commit-msg
+chmod +x /myproject/.git/hooks/commit-msg
 ``` 
 
-Then put the following content into **/myproject/.git/hooks/pre-commit**
+Then put the following content into **/myproject/.git/hooks/commit-msg**
 
 ```
 #!/bin/sh
