@@ -1,11 +1,14 @@
-// Write your package code here!
+//var databaseUrl = 'https://dl.dropboxusercontent.com/u/9224326/geogit/GeoLite2-City.mmdb';
+var databaseUrl = 'https://dl.dropboxusercontent.com/u/9224326/geogit/GeoLite2-City.mmdb.gz';
 
 FreeGeoIP = {
-    get : function(urlOrIP, callback){
-        var url = [
-            'https://bakery-freegeoip.herokuapp.com/json',
-            urlOrIP
-        ].join('/');
-        return HTTP.get(url, callback);
+    load : function(){
+        mmdbreader.open(databaseUrl,function(err,countries){
+            // get geodata
+            countries.getGeoData('128.101.101.101',function(err,geodata){
+                // log data :D
+                console.log(geodata);
+            });
+        });
     }
 };
