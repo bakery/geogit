@@ -21,7 +21,7 @@ if (Meteor.isServer) {
     //setInterval(function(){
     console.log('trying geocode...');
 
-    Geocoder.geocode('128.101.101.101',function(err,geodata){
+    IPGeocoder.geocode('128.101.101.101',function(err,geodata){
       // log data :D
       if(err){
         console.error(err);

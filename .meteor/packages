@@ -7,5 +7,5 @@
 meteor-platform
 autopublish
 insecure
-thebakery:freegeoip
+thebakery:ipgeocoder
 iron:router

@@ -7,7 +7,7 @@ var DatabaseState = {
   LoadFailed: 'failed' 
 };
 
-Geocoder = {
+IPGeocoder = {
   load : function(){
     var self = this;
 
