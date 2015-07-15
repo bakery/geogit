@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.addFiles(['lib/patch.js', 'freegeoip.js']);
 
-  api.export('FreeGeoIP');
+  api.export('Geocoder');
 });
 
 Package.onTest(function(api) {

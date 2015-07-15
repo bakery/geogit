@@ -18,6 +18,17 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    FreeGeoIP.load();
+    //setInterval(function(){
+    console.log('trying geocode...');
+
+    Geocoder.geocode('128.101.101.101',function(err,geodata){
+      // log data :D
+      if(err){
+        console.error(err);
+      } else {
+        console.log(geodata);
+      }
+    });
+    //}, 5000);
   });
 }
