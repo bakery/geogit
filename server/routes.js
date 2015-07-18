@@ -18,9 +18,9 @@ Router.route('/locate/:format?', function () {
     'geogit' : function(data){
       return [
         '[Geogit] // sent from ' + 
-        data.country_name, ', ', data.city,
-        ' [', data.latitude + ',' + data.longitude + '] ',
-        ':' + data.country_code + ':'
+        data.country.name, ', ', data.city.name,
+        ' [', data.location.latitude + ',' + data.location.longitude + '] ',
+        ':' + data.country.code + ':'
       ].join(''); 
     }
   };
@@ -30,8 +30,8 @@ Router.route('/locate/:format?', function () {
   var result = '';
 
   try {
-    var geoData = FreeGeoIP.get(requestIp);  
-    result = formatToOutput[format].call(this,geoData.data);
+    var geoData = IPGeocoder.geocode(requestIp);  
+    result = formatToOutput[format].call(this,geoData);
   } catch(e) {
     console.error('geoloc failed', e);
   }
